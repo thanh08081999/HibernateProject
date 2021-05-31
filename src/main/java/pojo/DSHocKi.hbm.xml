@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="dangkykhoahoc" name="pojo.DSHocKi" table="ds_hoc_ki">
+        <id name="tenHocKi" type="string">
+            <column length="10" name="tenHocKi"/>
+            <generator class="assigned"/>
+        </id>
+        <id name="namHoc" type="string">
+            <column length="20" name="namHoc"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="ngayBD" type="date">
+            <column length="10" name="ngayBD"/>
+        </property>
+        <property name="ngayKT" type="date">
+            <column length="10" name="ngayKT"/>
+        </property>
+    </class>
+</hibernate-mapping>

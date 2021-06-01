@@ -1,5 +1,7 @@
 package pojo;
 
+
+
 public class LopHoc {
 	private String tenLop;
 	private int tongSinhVien;

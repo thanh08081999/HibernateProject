@@ -1,5 +1,7 @@
 package pojo;
 
+
+
 public class CaHoc {
     private String idCa;
     private String gioHoc;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
  
 <hibernate-configuration>
     <session-factory>
@@ -14,17 +15,17 @@
         <property name="show_sql">true</property>
          
         <!--Mapping-->
-        <mapping resource="java/pojo/TaiKhoan.hbm.xml"/>
-        <mapping resource="pojo/SinhVien.hbm.xml"/>
-        <mapping resource="pojo/PhongHoc.hbm.xml"/>
-        <mapping resource="pojo/NgayTrongTuan.hbm.xml"/>
-        <mapping resource="pojo/MonHoc.hbm.xml"/>
-        <mapping resource="pojo/LopHoc.hbm.xml"/>
-        <mapping resource="pojo/HocPhan.hbm.xml"/>
-        <mapping resource="pojo/GiaoVien.hbm.xml"/>
-        <mapping resource="pojo/DSSVDKHP.hbm.xml"/>
-        <mapping resource="pojo/DSKiDKHP.hbm.xml"/>
-        <mapping resource="pojo/DSHocKi.hbm.xml"/>
-        <mapping resource="pojo/CaHoc.hbm.xml"/>
+        <mapping resource="TaiKhoan.hbm.xml"/>
+        <mapping resource="SinhVien.hbm.xml"/>
+        <mapping resource="PhongHoc.hbm.xml"/>
+        <mapping resource="NgayTrongTuan.hbm.xml"/>
+        <mapping resource="MonHoc.hbm.xml"/>
+        <mapping resource="LopHoc.hbm.xml"/>
+        <mapping resource="HocPhan.hbm.xml"/>
+        <mapping resource="GiaoVien.hbm.xml"/>
+        <mapping resource="DSSVDKHP.hbm.xml"/>
+        <mapping resource="DSKiDKHP.hbm.xml"/>
+        <mapping resource="DSHocKi.hbm.xml"/>
+        <mapping resource="CaHoc.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

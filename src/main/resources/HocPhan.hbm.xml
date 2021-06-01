@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojo.HocPhan" table="hoc_phan">
+        <composite-id>
+            <key-property name="maMonHoc" type="string" column="maMonHoc"/>
+            <key-property name="tenMonHoc" type="string" column="tenMonHoc"/>
+            <key-property name="giaoVienLT" type="string" column="giaoVienLyThuyet"/>
+            <key-property name="phongHoc" type="string" column="phongHoc"/>
+            <key-property name="thu" type="string" column="thu"/>
+            <key-property name="ca" type="string" column="caHoc"/>
+            <generator class="assigned"/>
+        </composite-id>
+        <property name="soTinChi" type="int">
+            <column name="soTinChi"/>
+        </property>
+        <property name="soSlot" type="int">
+            <column name="soSlot"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class catalog="dangkykhoahoc" name="pojo.TaiKhoan" table="tai_khoan">
+    <class name="pojo.TaiKhoan" table="tai_khoan">
         <id name="taiKhoan" type="string">
-            <column length="50" name="taiKhoan"/>
+            <column name="taiKhoan"/>
             <generator class="assigned"/>
         </id>
         <property name="matKhau" type="string">
-            <column length="50" name="mauKhau"/>
+            <column name="mauKhau"/>
         </property>
         <property name="chucDanh" type="string">
-            <column length="50" name="chucDanh"/>
+            <column name="chucDanh"/>
         </property>
         <property name="soDienThoai" type="string">
-            <column length="20" name="soDienThoai"/>
+            <column name="soDienThoai"/>
         </property>
         <property name="email" type="string">
-            <column length="50" name="email"/>
+            <column name="email"/>
         </property>
     </class>
 </hibernate-mapping>

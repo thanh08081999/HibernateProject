@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojo.DSSVDKHP" table="ds_sv_dk_hp">
+        <composite-id>
+            <key-property name="maSinhVien" type="string" column="maSinhVien"/>
+            <key-property name="maMonHoc" type="string" column="maMonHoc"/>
+            <key-property name="tenMonHoc" type="string" column="tenMonHoc"/>
+            <key-property name="giaoVien" type="string" column="tenGiaoVien"/>
+            <key-property name="ca" type="string" column="caHoc"/>
+            <generator class="assigned"/>
+        </composite-id>
+        <property name="tenSinhVien" type="string">
+            <column name="tenSinhVien"/>
+        </property>
+        <property name="thoiGianDKHP" type="date">
+            <column name="thoiGianDKHP"/>
+        </property>
+    </class>
+</hibernate-mapping>

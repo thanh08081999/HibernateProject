@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojo.SinhVien" table="sinh_vien">
+        <id name="maSinhVien" type="string">
+            <column name="maSinhVien"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="tenSinhVien" type="string">
+            <column name="tenSinhVien"/>
+        </property>
+        <property name="tenLop" type="string">
+            <column name="tenLop"/>
+        </property>
+        <property name="gioiTinh" type="string">
+            <column name="gioiTinh"/>
+        </property>
+    </class>
+</hibernate-mapping>

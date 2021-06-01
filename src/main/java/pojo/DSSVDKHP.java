@@ -1,8 +1,12 @@
 package pojo;
 
-import java.util.Date;
 
-public class DSSVDKHP {
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Objects;
+
+public class DSSVDKHP implements Serializable{
     private String maSinhVien;
     private String tenSinhVien;
     private String maMonHoc;
@@ -80,5 +84,32 @@ public class DSSVDKHP {
         this.thoiGianDKHP = thoiGianDKHP;
     }
     
-    
+    /**
+     *
+     * @param o
+     * @return
+     */
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof DSSVDKHP no) {
+            if (this.maSinhVien.equals(no.maSinhVien) &&
+                this.maMonHoc.equals(no.maMonHoc) &&
+                this.tenMonHoc.equals(no.tenMonHoc) &&
+                this.giaoVien.equals(no.giaoVien) &&
+                this.ca.equals(no.ca))
+                return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.maSinhVien);
+        hash = 37 * hash + Objects.hashCode(this.maMonHoc);
+        hash = 37 * hash + Objects.hashCode(this.tenMonHoc);
+        hash = 37 * hash + Objects.hashCode(this.giaoVien);
+        hash = 37 * hash + Objects.hashCode(this.ca);
+        return hash;
+    }
 }

@@ -1,8 +1,12 @@
 package pojo;
 
-import java.util.Date;
 
-public class DSKiDKHP {
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Objects;
+
+public class DSKiDKHP implements Serializable{
     private String tenHocKi;
     private String namHoc;
     private Date ngayBD;
@@ -50,5 +54,26 @@ public class DSKiDKHP {
         this.ngayKT = ngayKT;
     }
     
-    
+    /**
+     *
+     * @param o
+     * @return
+     */
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof DSKiDKHP no) {
+            if (this.tenHocKi.equals(no.tenHocKi) &&
+                this.namHoc.equals(no.namHoc))
+                return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 2;
+        hash = 67 * hash + Objects.hashCode(this.tenHocKi);
+        hash = 67 * hash + Objects.hashCode(this.namHoc);
+        return hash;
+    }
 }

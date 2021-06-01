@@ -1,8 +1,13 @@
 package pojo;
 
-import java.util.Date;
 
-public class DSHocKi {
+
+import java.util.Date;
+import java.io.Serializable;
+import java.util.Objects;
+
+
+public class DSHocKi implements Serializable{
     private String tenHocKi;
     private String namHoc;
     private Date ngayBD;
@@ -50,5 +55,26 @@ public class DSHocKi {
         this.ngayKT = ngayKT;
     }
     
-    
+    /**
+     *
+     * @param o
+     * @return
+     */
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof DSHocKi no) {
+            if (this.tenHocKi.equals(no.tenHocKi) &&
+                this.namHoc.equals(no.namHoc))
+                return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 1;
+        hash = 71 * hash + Objects.hashCode(this.tenHocKi);
+        hash = 71 * hash + Objects.hashCode(this.namHoc);
+        return hash;
+    }
 }

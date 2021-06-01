@@ -1,6 +1,11 @@
 package pojo;
 
-public class SinhVien {
+import java.io.Serializable;
+import java.util.Objects;
+
+
+
+public class SinhVien implements Serializable{
 	private String maSinhVien;
 	private String tenSinhVien;
 	private String tenLop;
@@ -46,5 +51,27 @@ public class SinhVien {
     public void setGioiTinh(String gioiTinh) {
         this.gioiTinh = gioiTinh;
     }
-        
+    
+    /**
+     *
+     * @param o
+     * @return
+     */
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof SinhVien no) {
+            if (this.maSinhVien.equals(no.maSinhVien) &&
+                this.tenLop.equals(no.tenLop))
+                return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 6;
+        hash = 19 * hash + Objects.hashCode(this.maSinhVien);
+        hash = 19 * hash + Objects.hashCode(this.tenLop);
+        return hash;
+    }
 }

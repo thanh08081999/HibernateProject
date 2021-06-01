@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojo.DSHocKi" table="ds_hoc_ki">
+        <composite-id>
+            <key-property name="tenHocKi" type="string" column="tenHocKi"/>
+            <key-property name="namHoc" type="string" column="namHoc"/>
+            <generator class="assigned"/>
+        </composite-id>
+        <property name="ngayBD" type="date">
+            <column name="ngayBD"/>
+        </property>
+        <property name="ngayKT" type="date">
+            <column name="ngayKT"/>
+        </property>
+    </class>
+</hibernate-mapping>

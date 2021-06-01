@@ -1,6 +1,11 @@
 package pojo;
 
-public class HocPhan {
+import java.io.Serializable;
+import java.util.Objects;
+
+
+
+public class HocPhan implements Serializable{
 	private String maMonHoc;
 	private String tenMonHoc;
 	private int soTinChi;
@@ -84,5 +89,36 @@ public class HocPhan {
 
     public void setSoSlot(int soSlot) {
         this.soSlot = soSlot;
+    }
+    
+    /**
+     *
+     * @param o
+     * @return
+     */
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof HocPhan no) {
+            if (this.maMonHoc.equals(no.maMonHoc) &&
+                this.tenMonHoc.equals(no.tenMonHoc) &&
+                this.giaoVienLT.equals(no.giaoVienLT) &&
+                this.phongHoc.equals(no.phongHoc) &&
+                this.thu.equals(no.thu) &&
+                this.ca.equals(no.ca))
+                return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 4;
+        hash = 17 * hash + Objects.hashCode(this.maMonHoc);
+        hash = 17 * hash + Objects.hashCode(this.tenMonHoc);
+        hash = 17 * hash + Objects.hashCode(this.giaoVienLT);
+        hash = 17 * hash + Objects.hashCode(this.phongHoc);
+        hash = 17 * hash + Objects.hashCode(this.thu);
+        hash = 17 * hash + Objects.hashCode(this.ca);
+        return hash;
     }
 }

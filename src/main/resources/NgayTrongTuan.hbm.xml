@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojo.NgayTrongTuan" table="cac_ngay_trong_tuan">
+        <id name="idThu" type="string">
+            <column name="idThu"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="tenThu" type="string">
+            <column name="tenThu"/>
+        </property>
+    </class>
+</hibernate-mapping>

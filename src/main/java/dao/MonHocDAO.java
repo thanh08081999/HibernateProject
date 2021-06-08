@@ -18,28 +18,28 @@ public class MonHocDAO {
         } catch (HibernateException ex) {
             System.err.println(ex);
         }
-        return dssv;
+        return dsmh;
     }
     
-    public static SinhVien layThongTinSinhVien(String maSinhVien) {
-        SinhVien sv = null;
+    public static MonHoc layThongTinMonHoc(String maMonHoc) {
+        MonHoc mh = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            sv = (SinhVien) session.get(SinhVien.class, maSinhVien);
+            mh = (MonHoc) session.get(MonHoc.class, maMonHoc);
         } catch (HibernateException ex) {
             System.err.println(ex);
         }
-        return sv;
+        return mh;
     }
     
-    public static boolean themSinhVien(SinhVien sv) {
+    public static boolean themMonHoc(MonHoc mh) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (SinhVienDAO.layThongTinSinhVien(sv.getMaSinhVien()) != null) {
+        if (MonHocDAO.layThongTinMonHoc(mh.getMaMonHoc()) != null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.save(sv);
+            session.save(mh);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
@@ -49,15 +49,15 @@ public class MonHocDAO {
         }
         return true;
     }
-    public static boolean capNhatThongTinSinhVien(SinhVien sv) {
+    public static boolean capNhatThongTinMonHoc(MonHoc mh) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (SinhVienDAO.layThongTinSinhVien(sv.getMaSinhVien()) != null) {
+        if (MonHocDAO.layThongTinMonHoc(mh.getMaMonHoc()) != null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.update(sv);
+            session.update(mh);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
@@ -68,15 +68,16 @@ public class MonHocDAO {
         return true;
     }
     
-    public static boolean xoaSinhVien(String maSinhVien) {
+    public static boolean xoaMonHoc(String maMonHoc) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (SinhVienDAO.layThongTinSinhVien(maSinhVien) != null) {
+        MonHoc mh = MonHocDAO.layThongTinMonHoc(maMonHoc);
+        if (mh == null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.delete(maSinhVien);
+            session.delete(mh);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();

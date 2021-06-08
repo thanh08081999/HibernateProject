@@ -1,7 +1,5 @@
 package pojo;
 
-
-
 public class GiaoVien {
 	private String maGiaoVien;
 	private String tenGiaoVien;

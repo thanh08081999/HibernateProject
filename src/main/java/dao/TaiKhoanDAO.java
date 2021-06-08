@@ -70,13 +70,14 @@ public class TaiKhoanDAO {
     
     public static boolean xoaTaiKhoan(String taiKhoan) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (TaiKhoanDAO.layThongTinTaiKhoan(taiKhoan) != null) {
+        TaiKhoan tk = TaiKhoanDAO.layThongTinTaiKhoan(taiKhoan);
+        if (tk == null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.delete(taiKhoan);
+            session.delete(tk);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();

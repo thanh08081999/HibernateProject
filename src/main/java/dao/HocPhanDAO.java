@@ -1,6 +1,7 @@
 package dao;
 
-import pojo.SinhVien;
+import pojo.HocPhan;
+import pojo.IDHocPhan;
 import java.util.List;
 import util.HibernateUtil;
 import org.hibernate.HibernateException;
@@ -9,37 +10,37 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 public class HocPhanDAO {
-    public static List<SinhVien> layDanhSachSinhVien(){
-        List<SinhVien> dssv = null;
+    public static List<HocPhan> layDanhSachHocPhan(){
+        List<HocPhan> dshp = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql  = "select sv from SinhVien sv";
+            String hql  = "select hp from HocPhan hp";
             Query query = session.createQuery(hql);
-            dssv = query.list();
+            dshp = query.list();
         } catch (HibernateException ex) {
             System.err.println(ex);
         }
-        return dssv;
+        return dshp;
     }
     
-    public static SinhVien layThongTinSinhVien(String maSinhVien) {
-        SinhVien sv = null;
+    public static HocPhan layThongTinHocPhan(IDHocPhan idHocPhan) {
+        HocPhan hp = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            sv = (SinhVien) session.get(SinhVien.class, maSinhVien);
+            hp = (HocPhan) session.get(HocPhan.class, idHocPhan);
         } catch (HibernateException ex) {
             System.err.println(ex);
         }
-        return sv;
+        return hp;
     }
     
-    public static boolean themSinhVien(SinhVien sv) {
+    public static boolean themHocPhan(HocPhan hp) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (SinhVienDAO.layThongTinSinhVien(sv.getMaSinhVien()) != null) {
+        if (HocPhanDAO.layThongTinHocPhan(hp.getIdHocPhan()) != null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.save(sv);
+            session.save(hp);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
@@ -49,15 +50,15 @@ public class HocPhanDAO {
         }
         return true;
     }
-    public static boolean capNhatThongTinSinhVien(SinhVien sv) {
+    public static boolean capNhatThongTinHocPhan(HocPhan hp) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (SinhVienDAO.layThongTinSinhVien(sv.getMaSinhVien()) != null) {
+        if (HocPhanDAO.layThongTinHocPhan(hp.getIdHocPhan()) != null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.update(sv);
+            session.update(hp);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
@@ -68,15 +69,16 @@ public class HocPhanDAO {
         return true;
     }
     
-    public static boolean xoaSinhVien(String maSinhVien) {
+    public static boolean xoaHocPhan(IDHocPhan idHocPhan) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (SinhVienDAO.layThongTinSinhVien(maSinhVien) != null) {
+        HocPhan hp = HocPhanDAO.layThongTinHocPhan(idHocPhan);
+        if (hp == null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.delete(maSinhVien);
+            session.delete(hp);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();

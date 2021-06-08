@@ -1,6 +1,7 @@
 package dao;
 
-import pojo.SinhVien;
+import pojo.HocKi;
+import pojo.IDHocKi;
 import java.util.List;
 import util.HibernateUtil;
 import org.hibernate.HibernateException;
@@ -8,38 +9,38 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-public class SinhVienDAO {
-    public static List<SinhVien> layDanhSachSinhVien(){
-        List<SinhVien> dssv = null;
+public class HocKiDAO {
+    public static List<HocKi> layDanhSachHocKi(){
+        List<HocKi> dshk = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql  = "select sv from SinhVien sv";
+            String hql  = "select hk from HocKi hk";
             Query query = session.createQuery(hql);
-            dssv = query.list();
+            dshk = query.list();
         } catch (HibernateException ex) {
             System.err.println(ex);
         }
-        return dssv;
+        return dshk;
     }
     
-    public static SinhVien layThongTinSinhVien(String maSinhVien) {
-        SinhVien sv = null;
+    public static HocKi layThongTinHocKi(IDHocKi idHocKi) {
+        HocKi hk = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            sv = (SinhVien) session.get(SinhVien.class, maSinhVien);
+            hk = (HocKi) session.get(HocKi.class, idHocKi);
         } catch (HibernateException ex) {
             System.err.println(ex);
         }
-        return sv;
+        return hk;
     }
     
-    public static boolean themSinhVien(SinhVien sv) {
+    public static boolean themHocKi(HocKi hk) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (SinhVienDAO.layThongTinSinhVien(sv.getMaSinhVien()) != null) {
+        if (HocKiDAO.layThongTinHocKi(hk.getIdHocKi()) != null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.save(sv);
+            session.save(hk);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
@@ -49,15 +50,15 @@ public class SinhVienDAO {
         }
         return true;
     }
-    public static boolean capNhatThongTinSinhVien(SinhVien sv) {
+    public static boolean capNhatThongTinHocKi(HocKi hk) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (SinhVienDAO.layThongTinSinhVien(sv.getMaSinhVien()) != null) {
+        if (HocKiDAO.layThongTinHocKi(hk.getIdHocKi()) != null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.update(sv);
+            session.update(hk);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
@@ -68,16 +69,16 @@ public class SinhVienDAO {
         return true;
     }
     
-    public static boolean xoaSinhVien(String maSinhVien) {
+    public static boolean xoaHocKi(IDHocKi idHocKi) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        SinhVien sv = SinhVienDAO.layThongTinSinhVien(maSinhVien);
-        if (sv == null) {
+        HocKi hk = HocKiDAO.layThongTinHocKi(idHocKi);
+        if (hk == null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.delete(sv);
+            session.delete(hk);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();

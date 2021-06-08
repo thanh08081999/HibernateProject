@@ -2,8 +2,8 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="pojo.DSHocKi" table="ds_hoc_ki">
-        <composite-id>
+    <class name="pojo.HocKi" table="hoc_ki">
+        <composite-id name="idHocKi" class="pojo.IDHocKi">
             <key-property name="tenHocKi" type="string" column="tenHocKi"/>
             <key-property name="namHoc" type="string" column="namHoc"/>
             <generator class="assigned"/>

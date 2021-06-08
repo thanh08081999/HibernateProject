@@ -3,23 +3,17 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="pojo.HocPhan" table="hoc_phan">
-        <composite-id>
-            <key-property class="pojo.MonHoc" name="monHoc" fetch="select" lazy="false">
-                <column name="maMonHoc" not-null="true"/>
-            </key-property>
-            <key-property class="pojo.NgayTrongTuan" name="thu" fetch="select" lazy="false">
-                <column name="idThu" not-null="true"/>
-            </key-property>
-            <key-property class="pojo.CaHoc" name="ca" fetch="select" lazy="false">
-                <column name="idCa" not-null="true"/>
-            </key-property>
+        <composite-id name="idHocPhan" class="pojo.IDHocPhan">
+            <key-property name="maMonHoc" type="string" column="maMonHoc"/>
+            <key-property name="idThu" type="string" column="thu"/>
+            <key-property name="idCa" type="string" column="caHoc"/>
             <generator class="assigned"/>
         </composite-id>
         <many-to-one class="pojo.GiaoVien" name="giaoVien" fetch="select" lazy="false">
-            <column name="maGiaoVien" not-null="true"/>
+            <column name="giaoVienLyThuyet" not-null="true"/>
         </many-to-one>
         <many-to-one class="pojo.PhongHoc" name="phongHoc" fetch="select" lazy="false">
-            <column name="maPhong" not-null="true"/>
+            <column name="phongHoc" not-null="true"/>
         </many-to-one>
         <property name="soSlot" type="int">
             <column name="soSlot"/>

@@ -91,15 +91,12 @@ public class DSSVDKHP implements Serializable{
      */
     @Override
     public boolean equals(Object o){
-        if (o instanceof DSSVDKHP no) {
-            if (this.maSinhVien.equals(no.maSinhVien) &&
+        DSSVDKHP no = (DSSVDKHP) o;
+        return this.maSinhVien.equals(no.maSinhVien) &&
                 this.maMonHoc.equals(no.maMonHoc) &&
                 this.tenMonHoc.equals(no.tenMonHoc) &&
                 this.giaoVien.equals(no.giaoVien) &&
-                this.ca.equals(no.ca))
-                return true;
-        }
-        return false;
+                this.ca.equals(no.ca);
     }
 
     @Override

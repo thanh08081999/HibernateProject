@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="pojo.HocPhan" table="hoc_phan">
         <composite-id>
-            <key-property name="maMonHoc" type="string" column="maMonHoc"/>
-            <key-property name="tenMonHoc" type="string" column="tenMonHoc"/>
-            <key-property name="giaoVienLT" type="string" column="giaoVienLyThuyet"/>
-            <key-property name="phongHoc" type="string" column="phongHoc"/>
-            <key-property name="thu" type="string" column="thu"/>
-            <key-property name="ca" type="string" column="caHoc"/>
+            <key-property class="pojo.MonHoc" name="monHoc" fetch="select" lazy="false">
+                <column name="maMonHoc" not-null="true"/>
+            </key-property>
+            <key-property class="pojo.NgayTrongTuan" name="thu" fetch="select" lazy="false">
+                <column name="idThu" not-null="true"/>
+            </key-property>
+            <key-property class="pojo.CaHoc" name="ca" fetch="select" lazy="false">
+                <column name="idCa" not-null="true"/>
+            </key-property>
             <generator class="assigned"/>
         </composite-id>
-        <property name="soTinChi" type="int">
-            <column name="soTinChi"/>
-        </property>
+        <many-to-one class="pojo.GiaoVien" name="giaoVien" fetch="select" lazy="false">
+            <column name="maGiaoVien" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="pojo.PhongHoc" name="phongHoc" fetch="select" lazy="false">
+            <column name="maPhong" not-null="true"/>
+        </many-to-one>
         <property name="soSlot" type="int">
             <column name="soSlot"/>
         </property>

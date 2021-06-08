@@ -61,12 +61,9 @@ public class DSKiDKHP implements Serializable{
      */
     @Override
     public boolean equals(Object o){
-        if (o instanceof DSKiDKHP no) {
-            if (this.tenHocKi.equals(no.tenHocKi) &&
-                this.namHoc.equals(no.namHoc))
-                return true;
-        }
-        return false;
+        DSKiDKHP no = (DSKiDKHP) o;
+        return this.tenHocKi.equals(no.tenHocKi) &&
+                this.namHoc.equals(no.namHoc);
     }
 
     @Override

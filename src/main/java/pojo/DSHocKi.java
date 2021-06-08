@@ -62,12 +62,9 @@ public class DSHocKi implements Serializable{
      */
     @Override
     public boolean equals(Object o){
-        if (o instanceof DSHocKi no) {
-            if (this.tenHocKi.equals(no.tenHocKi) &&
-                this.namHoc.equals(no.namHoc))
-                return true;
-        }
-        return false;
+        DSHocKi no = (DSHocKi) o;
+        return this.tenHocKi.equals(no.tenHocKi) &&
+                this.namHoc.equals(no.namHoc);
     }
 
     @Override

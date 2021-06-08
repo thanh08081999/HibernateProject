@@ -49,19 +49,18 @@ public class MonHoc implements Serializable{
      */
     @Override
     public boolean equals(Object o){
-        if (o instanceof MonHoc no) {
-            if (this.maMonHoc.equals(no.maMonHoc) &&
-                this.tenMonHoc.equals(no.tenMonHoc))
-                return true;
-        }
-        return false;
+        MonHoc no = (MonHoc) o;
+        return this.maMonHoc.equals(no.maMonHoc);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 37 * hash + Objects.hashCode(this.maMonHoc);
-        hash = 37 * hash + Objects.hashCode(this.tenMonHoc);
         return hash;
     }
 }

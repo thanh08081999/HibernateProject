@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="pojo.MonHoc" table="mon_hoc">
-        <composite-id>
-            <key-property name="maMonHoc" type="string" column="maMonHoc"/>
-            <key-property name="tenMonHoc" type="string" column="tenMonHoc"/>
+        <id name="maMonHoc" type="string">
+            <column name="maMonHoc"/>
             <generator class="assigned"/>
-        </composite-id>
+        </id>
+        <property name="tenMonHoc" type="string">
+            <column name="tenMonHoc"/>
+        </property>
         <property name="soTinChi" type="int">
             <column name="soTinChi"/>
         </property>

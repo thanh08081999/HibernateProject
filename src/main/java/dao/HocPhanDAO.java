@@ -52,7 +52,7 @@ public class HocPhanDAO {
     }
     public static boolean capNhatThongTinHocPhan(HocPhan hp) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (HocPhanDAO.layThongTinHocPhan(hp.getIdHocPhan()) != null) {
+        if (HocPhanDAO.layThongTinHocPhan(hp.getIdHocPhan()) == null) {
             return false;
         }
         Transaction transaction = null;

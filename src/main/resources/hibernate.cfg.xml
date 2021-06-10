@@ -23,8 +23,8 @@
         <mapping resource="LopHoc.hbm.xml"/>
         <mapping resource="HocPhan.hbm.xml"/>
         <mapping resource="GiaoVien.hbm.xml"/>
-        <mapping resource="DSSVDKHP.hbm.xml"/>
-        <mapping resource="DSKiDKHP.hbm.xml"/>
+        <!--<mapping resource="SVDKHP.hbm.xml"/>-->
+        <mapping resource="KiDKHP.hbm.xml"/>
         <mapping resource="HocKi.hbm.xml"/>
         <mapping resource="CaHoc.hbm.xml"/>
     </session-factory>

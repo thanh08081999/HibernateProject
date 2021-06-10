@@ -51,7 +51,7 @@ public class SinhVienDAO {
     }
     public static boolean capNhatThongTinSinhVien(SinhVien sv) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (SinhVienDAO.layThongTinSinhVien(sv.getMaSinhVien()) != null) {
+        if (SinhVienDAO.layThongTinSinhVien(sv.getMaSinhVien()) == null) {
             return false;
         }
         Transaction transaction = null;

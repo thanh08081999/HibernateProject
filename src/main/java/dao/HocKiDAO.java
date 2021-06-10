@@ -52,7 +52,7 @@ public class HocKiDAO {
     }
     public static boolean capNhatThongTinHocKi(HocKi hk) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (HocKiDAO.layThongTinHocKi(hk.getIdHocKi()) != null) {
+        if (HocKiDAO.layThongTinHocKi(hk.getIdHocKi()) == null) {
             return false;
         }
         Transaction transaction = null;

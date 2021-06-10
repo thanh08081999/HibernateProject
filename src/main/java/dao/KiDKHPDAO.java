@@ -1,6 +1,7 @@
 package dao;
 
-import pojo.TaiKhoan;
+import pojo.KiDKHP;
+import pojo.IDHocKi;
 import java.util.List;
 import util.HibernateUtil;
 import org.hibernate.HibernateException;
@@ -8,38 +9,38 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-public class TaiKhoanDAO {
-    public static List<TaiKhoan> layDanhSachTaiKhoan(){
-        List<TaiKhoan> dstk = null;
+public class KiDKHPDAO {
+    public static List<KiDKHP> layDanhSachKiDKHP(){
+        List<KiDKHP> dskidkhp = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql  = "select tk from TaiKhoan tk";
+            String hql  = "select ki from KiDKHP ki";
             Query query = session.createQuery(hql);
-            dstk = query.list();
+            dskidkhp = query.list();
         } catch (HibernateException ex) {
             System.err.println(ex);
         }
-        return dstk;
+        return dskidkhp;
     }
     
-    public static TaiKhoan layThongTinTaiKhoan(String taiKhoan) {
-        TaiKhoan tk = null;
+    public static KiDKHP layThongTinKiDKHP(IDHocKi idHocKi) {
+        KiDKHP ki = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            tk = (TaiKhoan) session.get(TaiKhoan.class, taiKhoan);
+            ki = (KiDKHP) session.get(KiDKHP.class, idHocKi);
         } catch (HibernateException ex) {
             System.err.println(ex);
         }
-        return tk;
+        return ki;
     }
     
-    public static boolean themTaiKhoan(TaiKhoan tk) {
+    public static boolean themKiDKHP(KiDKHP ki) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (TaiKhoanDAO.layThongTinTaiKhoan(tk.getTaiKhoan()) != null) {
+        if (KiDKHPDAO.layThongTinKiDKHP(ki.getIdHocKi()) != null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.save(tk);
+            session.save(ki);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
@@ -49,15 +50,15 @@ public class TaiKhoanDAO {
         }
         return true;
     }
-    public static boolean capNhatThongTinTaiKhoan(TaiKhoan tk) {
+    public static boolean capNhatThongTinKiDKHP(KiDKHP ki) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (TaiKhoanDAO.layThongTinTaiKhoan(tk.getTaiKhoan()) == null) {
+        if (KiDKHPDAO.layThongTinKiDKHP(ki.getIdHocKi()) == null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.update(tk);
+            session.update(ki);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();
@@ -68,16 +69,16 @@ public class TaiKhoanDAO {
         return true;
     }
     
-    public static boolean xoaTaiKhoan(String taiKhoan) {
+    public static boolean xoaKiDKHP(IDHocKi idHocKi) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        TaiKhoan tk = TaiKhoanDAO.layThongTinTaiKhoan(taiKhoan);
-        if (tk == null) {
+        KiDKHP ki = KiDKHPDAO.layThongTinKiDKHP(idHocKi);
+        if (ki == null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.delete(tk);
+            session.delete(ki);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();

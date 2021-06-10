@@ -51,7 +51,7 @@ public class MonHocDAO {
     }
     public static boolean capNhatThongTinMonHoc(MonHoc mh) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (MonHocDAO.layThongTinMonHoc(mh.getMaMonHoc()) != null) {
+        if (MonHocDAO.layThongTinMonHoc(mh.getMaMonHoc()) == null) {
             return false;
         }
         Transaction transaction = null;

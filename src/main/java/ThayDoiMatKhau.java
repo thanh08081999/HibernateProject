@@ -134,6 +134,7 @@ public class ThayDoiMatKhau extends javax.swing.JFrame {
         if (txfMKBD.getText().equals(taiKhoan.getMatKhau())) {
             if (txfMKM.getText().length() != 0 && txfMKM.getText().equals(txfMKM1.getText())) {
                 taiKhoan.setMatKhau(txfMKM.getText());
+                JOptionPane.showMessageDialog(this, "Thay đổi mật khẩu thành công", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
                 new ThongTinTaiKhoan(taiKhoan).setVisible(true);
                 this.dispose();
             } else {

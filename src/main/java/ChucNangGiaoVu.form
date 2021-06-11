@@ -30,24 +30,24 @@
               <Component id="lbGiaoVu" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btnGVQLKDKHP" max="32767" attributes="0"/>
-                  <Component id="btnGVQLHK" max="32767" attributes="0"/>
-                  <Component id="btnGVQLLH" max="32767" attributes="0"/>
-                  <Component id="btnGVQLMH" max="32767" attributes="0"/>
-                  <Component id="btnGVQLSV" max="32767" attributes="0"/>
-                  <Component id="btnGVQLTK" max="32767" attributes="0"/>
-                  <Component id="btnGVQLHP" max="32767" attributes="0"/>
-                  <Component id="btnGVQLKQDKHP" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnGVTTTK" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
-              <Component id="btnThoat" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="btnGVQLKDKHP" max="32767" attributes="0"/>
+                      <Component id="btnGVQLHK" max="32767" attributes="0"/>
+                      <Component id="btnGVQLLH" max="32767" attributes="0"/>
+                      <Component id="btnGVQLMH" max="32767" attributes="0"/>
+                      <Component id="btnGVQLTK" max="32767" attributes="0"/>
+                      <Component id="btnGVQLKQDKHP" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnGVTTTK" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="btnThoat" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="82" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -65,27 +65,23 @@
                       <Component id="btnQuayLai" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="29" max="32767" attributes="0"/>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
               <Component id="btnGVTTTK" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnGVQLTK" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnGVQLSV" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnGVQLMH" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnGVQLLH" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnGVQLHK" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnGVQLKDKHP" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnGVQLHP" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnGVQLKQDKHP" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Component id="btnThoat" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -100,17 +96,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGVQLTKActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnGVQLSV">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; sinh vi&#xea;n"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGVQLSVActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnGVQLMH">
@@ -131,6 +116,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; l&#x1edb;p h&#x1ecd;c"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGVQLLHActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnGVQLHK">
       <Properties>
@@ -139,6 +127,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; h&#x1ecd;c k&#xec;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGVQLHKActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbGiaoVu">
       <Properties>
@@ -154,14 +145,6 @@
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; k&#xec; &#x111;&#x103;ng k&#xfd; h&#x1ecd;c ph&#x1ea7;n"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnGVQLHP">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; h&#x1ecd;c ph&#x1ea7;n"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnGVQLKQDKHP">

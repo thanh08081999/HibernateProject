@@ -21,13 +21,11 @@ public class ChucNangGiaoVu extends javax.swing.JFrame {
     private void initComponents() {
 
         btnGVQLTK = new javax.swing.JButton();
-        btnGVQLSV = new javax.swing.JButton();
         btnGVQLMH = new javax.swing.JButton();
         btnGVQLLH = new javax.swing.JButton();
         btnGVQLHK = new javax.swing.JButton();
         lbGiaoVu = new javax.swing.JLabel();
         btnGVQLKDKHP = new javax.swing.JButton();
-        btnGVQLHP = new javax.swing.JButton();
         btnGVQLKQDKHP = new javax.swing.JButton();
         btnQuayLai = new javax.swing.JButton();
         btnThoat = new javax.swing.JButton();
@@ -43,14 +41,6 @@ public class ChucNangGiaoVu extends javax.swing.JFrame {
             }
         });
 
-        btnGVQLSV.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnGVQLSV.setText("Quản lý sinh viên");
-        btnGVQLSV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGVQLSVActionPerformed(evt);
-            }
-        });
-
         btnGVQLMH.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGVQLMH.setText("Quản lý môn học");
         btnGVQLMH.addActionListener(new java.awt.event.ActionListener() {
@@ -61,18 +51,25 @@ public class ChucNangGiaoVu extends javax.swing.JFrame {
 
         btnGVQLLH.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGVQLLH.setText("Quản lý lớp học");
+        btnGVQLLH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGVQLLHActionPerformed(evt);
+            }
+        });
 
         btnGVQLHK.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGVQLHK.setText("Quản lý học kì");
+        btnGVQLHK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGVQLHKActionPerformed(evt);
+            }
+        });
 
         lbGiaoVu.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbGiaoVu.setText("GIÁO VỤ");
 
         btnGVQLKDKHP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGVQLKDKHP.setText("Quản lý kì đăng ký học phần");
-
-        btnGVQLHP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnGVQLHP.setText("Quản lý học phần");
 
         btnGVQLKQDKHP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGVQLKQDKHP.setText("Xem kết quả đăng kí học phần");
@@ -112,21 +109,20 @@ public class ChucNangGiaoVu extends javax.swing.JFrame {
                 .addComponent(lbGiaoVu)
                 .addGap(183, 183, 183))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGVQLKDKHP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGVQLHK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGVQLLH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGVQLMH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGVQLSV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGVQLTK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGVQLHP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGVQLKQDKHP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGVTTTK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addComponent(btnThoat)
+                .addGap(115, 115, 115)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnGVQLKDKHP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGVQLHK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGVQLLH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGVQLMH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGVQLTK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGVQLKQDKHP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGVTTTK, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(btnThoat)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -139,12 +135,10 @@ public class ChucNangGiaoVu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnQuayLai)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(btnGVTTTK)
                 .addGap(18, 18, 18)
                 .addComponent(btnGVQLTK)
-                .addGap(18, 18, 18)
-                .addComponent(btnGVQLSV)
                 .addGap(18, 18, 18)
                 .addComponent(btnGVQLMH)
                 .addGap(18, 18, 18)
@@ -154,12 +148,10 @@ public class ChucNangGiaoVu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnGVQLKDKHP)
                 .addGap(18, 18, 18)
-                .addComponent(btnGVQLHP)
-                .addGap(18, 18, 18)
                 .addComponent(btnGVQLKQDKHP)
-                .addGap(31, 31, 31)
+                .addGap(39, 39, 39)
                 .addComponent(btnThoat)
-                .addGap(24, 24, 24))
+                .addGap(40, 40, 40))
         );
 
         pack();
@@ -169,10 +161,6 @@ public class ChucNangGiaoVu extends javax.swing.JFrame {
         new QuanLyTaiKhoan(taiKhoan).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnGVQLTKActionPerformed
-
-    private void btnGVQLSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGVQLSVActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGVQLSVActionPerformed
 
     private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
         new DangNhap().setVisible(true);
@@ -193,15 +181,23 @@ public class ChucNangGiaoVu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnGVQLMHActionPerformed
 
+    private void btnGVQLHKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGVQLHKActionPerformed
+        new QuanLyHocKi(taiKhoan).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnGVQLHKActionPerformed
+
+    private void btnGVQLLHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGVQLLHActionPerformed
+        new QuanLyLopHoc(taiKhoan).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnGVQLLHActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGVQLHK;
-    private javax.swing.JButton btnGVQLHP;
     private javax.swing.JButton btnGVQLKDKHP;
     private javax.swing.JButton btnGVQLKQDKHP;
     private javax.swing.JButton btnGVQLLH;
     private javax.swing.JButton btnGVQLMH;
-    private javax.swing.JButton btnGVQLSV;
     private javax.swing.JButton btnGVQLTK;
     private javax.swing.JButton btnGVTTTK;
     private javax.swing.JButton btnQuayLai;

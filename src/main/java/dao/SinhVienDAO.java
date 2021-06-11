@@ -7,12 +7,26 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import pojo.LopHoc;
 
 public class SinhVienDAO {
     public static List<SinhVien> layDanhSachSinhVien(){
         List<SinhVien> dssv = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             String hql  = "select sv from SinhVien sv";
+            Query query = session.createQuery(hql);
+            dssv = query.list();
+        } catch (HibernateException ex) {
+            System.err.println(ex);
+        }
+        return dssv;
+    }
+    
+    public static List<SinhVien> layDanhSachSinhVienTrongLop(String tenLop){
+        List<SinhVien> dssv = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql  = "select sv from SinhVien sv";
+            hql = hql + " where sv.lop = '" + tenLop + "'";
             Query query = session.createQuery(hql);
             dssv = query.list();
         } catch (HibernateException ex) {
@@ -85,6 +99,17 @@ public class SinhVienDAO {
         } finally {
             session.close();
         }
+        return true;
+    }
+    
+    public static boolean xoaSinhVienTrongLop(String tenLop) {
+        List<SinhVien> dssv = SinhVienDAO.layDanhSachSinhVienTrongLop(tenLop);
+        if (dssv == null) {
+            return false;
+        }
+        dssv.forEach(sv -> {
+            SinhVienDAO.xoaSinhVien(sv.getMaSinhVien());
+        });
         return true;
     }
 }

@@ -8,14 +8,16 @@ public class HocKi implements Serializable{
     private IDHocKi idHocKi;
     private Date ngayBD;
     private Date ngayKT;
+    private boolean HKHT;
 
     public HocKi() {
     }
 
-    public HocKi(IDHocKi idHocKi, Date ngayBD, Date ngayKT) {
+    public HocKi(IDHocKi idHocKi, Date ngayBD, Date ngayKT, boolean HKHT) {
         this.idHocKi = idHocKi;
         this.ngayBD = ngayBD;
         this.ngayKT = ngayKT;
+        this.HKHT = HKHT;
     }
 
     public IDHocKi getIdHocKi() {
@@ -42,10 +44,18 @@ public class HocKi implements Serializable{
         this.ngayKT = ngayKT;
     }
 
+    public boolean isHKHT() {
+        return HKHT;
+    }
+
+    public void setHKHT(boolean HKHT) {
+        this.HKHT = HKHT;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 61 * hash + Objects.hashCode(this.idHocKi);
+        hash = 97 * hash + Objects.hashCode(this.idHocKi);
         return hash;
     }
 
@@ -61,6 +71,9 @@ public class HocKi implements Serializable{
             return false;
         }
         final HocKi other = (HocKi) obj;
-        return Objects.equals(this.idHocKi, other.idHocKi);
+        if (!Objects.equals(this.idHocKi, other.idHocKi)) {
+            return false;
+        }
+        return true;
     }
 }

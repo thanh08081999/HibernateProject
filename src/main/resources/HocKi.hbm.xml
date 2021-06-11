@@ -14,5 +14,8 @@
         <property name="ngayKT" type="date">
             <column name="ngayKT"/>
         </property>
+        <property name="HKHT" type="boolean">
+            <column name="HKHT"/>
+        </property>
     </class>
 </hibernate-mapping>

@@ -9,6 +9,7 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
     DefaultTableModel defaultTableModel;
     /**
      * Creates new form QuanLyTaiKhoan
+     * @param taiKhoan
      */
     public QuanLyTaiKhoan(TaiKhoan taiKhoan) {
         this.taiKhoan = taiKhoan;
@@ -33,13 +34,12 @@ public class QuanLyTaiKhoan extends javax.swing.JFrame {
     }
     
     private void themDuLieu() {
-        List<TaiKhoan> dstk = TaiKhoanDAO.layDanhSachTaiKhoan();
-        for (TaiKhoan tk : dstk) {
-            if ("Giáo vụ".equals(tk.getChucDanh())) {
-                defaultTableModel.addRow(new Object[]{tk.getTaiKhoan(), tk.getMatKhau(), 
-                        tk.getChucDanh(), tk.getSoDienThoai(), tk.getEmail()});
-            }
-        }
+        List<TaiKhoan> dstk = TaiKhoanDAO.layDanhSachTaiKhoanGV();
+        
+        dstk.forEach(tk -> {
+            defaultTableModel.addRow(new Object[]{tk.getTaiKhoan(), tk.getMatKhau(),
+                tk.getChucDanh(), tk.getSoDienThoai(), tk.getEmail()});
+        });
     }
 
     /**

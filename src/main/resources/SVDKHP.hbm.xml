@@ -3,16 +3,25 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="pojo.SVDKHP" table="sv_dk_hp">
-        <composite-id>
+        <composite-id class="pojo.IDSVDKHP" name="idSVDKHP">
             <key-property name="maSinhVien" type="string" column="maSinhVien"/>
             <key-property name="maMonHoc" type="string" column="maMonHoc"/>
-            <key-property name="tenMonHoc" type="string" column="tenMonHoc"/>
-            <key-property name="giaoVien" type="string" column="tenGiaoVien"/>
-            <key-property name="ca" type="string" column="caHoc"/>
             <generator class="assigned"/>
         </composite-id>
-        <property name="tenSinhVien" type="string">
-            <column name="tenSinhVien"/>
+        <many-to-one class="pojo.GiaoVien" name="giaoVien" fetch="select" lazy="false">
+            <column name="giaoVien" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="pojo.PhongHoc" name="phongHoc" fetch="select" lazy="false">
+            <column name="phongHoc" not-null="true"/>
+        </many-to-one>
+        <property name="thu" type="string">
+            <column name="thu"/>
+        </property>
+        <property name="caHoc" type="string">
+            <column name="caHoc"/>
+        </property>
+        <property name="thoiGianHoc" type="date">
+            <column name="thoiGianHoc"/>
         </property>
         <property name="thoiGianDKHP" type="date">
             <column name="thoiGianDKHP"/>

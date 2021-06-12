@@ -7,7 +7,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import pojo.LopHoc;
+import pojo.IDSVDKHP;
+import pojo.SVDKHP;
 
 public class SinhVienDAO {
     public static List<SinhVien> layDanhSachSinhVien(){
@@ -83,11 +84,18 @@ public class SinhVienDAO {
     }
     
     public static boolean xoaSinhVien(String maSinhVien) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
         SinhVien sv = SinhVienDAO.layThongTinSinhVien(maSinhVien);
         if (sv == null) {
             return false;
         }
+        List<SVDKHP> dssvdkhp = SVDKHPDAO.layDanhSachSVDKHP();
+        for (SVDKHP svdkhp : dssvdkhp){
+            IDSVDKHP id = svdkhp.getIdSVDKHP();
+            if (id.getMaSinhVien().equals(maSinhVien))
+                SVDKHPDAO.xoaSVDKHP(id);
+        }
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();

@@ -220,7 +220,8 @@ public class QuanLyMonHoc extends javax.swing.JFrame {
         } else {
             String mmh = (String) tbQLMH.getValueAt(r, 0);
             String tmh = (String) tbQLMH.getValueAt(r, 1);
-            int confirm = JOptionPane.showConfirmDialog(QuanLyMonHoc.this, "Bạn có chắc muốn xóa môn " + tmh + " không?");
+            int confirm = JOptionPane.showConfirmDialog(QuanLyMonHoc.this, "Bạn có chắc muốn xóa môn " + tmh + " không?"
+                    + " Các học phần thuộc môn học này cũng sẽ bị xóa.");
             if (confirm == JOptionPane.YES_OPTION) {
                 if (MonHocDAO.xoaMonHoc(mmh)) {
                     JOptionPane.showMessageDialog(this, "Xóa môn học thành công", "Thông báo", JOptionPane.INFORMATION_MESSAGE);

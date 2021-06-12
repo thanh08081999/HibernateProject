@@ -7,6 +7,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import pojo.HocPhan;
 
 public class MonHocDAO {
     public static List<MonHoc> layDanhSachMonHoc(){
@@ -69,6 +70,13 @@ public class MonHocDAO {
     }
     
     public static boolean xoaMonHoc(String maMonHoc) {
+        List<HocPhan> dshp = HocPhanDAO.layDanhSachHocPhan();
+        dshp.forEach(hp -> {
+            MonHoc mh = hp.getMaMonHoc();
+            if (mh.getMaMonHoc().equals(maMonHoc)) {
+                HocPhanDAO.xoaHocPhan(hp.getIdHocPhan());
+            }
+        });
         Session session = HibernateUtil.getSessionFactory().openSession();
         MonHoc mh = MonHocDAO.layThongTinMonHoc(maMonHoc);
         if (mh == null) {

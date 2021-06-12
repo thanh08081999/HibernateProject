@@ -188,7 +188,7 @@ public class ThongTinTaiKhoan extends javax.swing.JFrame {
     private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
         getThongTinTaiKhoan();
         TaiKhoanDAO.capNhatThongTinTaiKhoan(taiKhoan);
-        if ("Sinh Viên".equals(taiKhoan.getChucDanh())) {
+        if ("Sinh viên".equals(taiKhoan.getChucDanh())) {
             new ChucNangSinhVien(taiKhoan).setVisible(true);
         } else {
             new ChucNangGiaoVu(taiKhoan).setVisible(true);

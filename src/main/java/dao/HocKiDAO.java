@@ -22,6 +22,18 @@ public class HocKiDAO {
         return dshk;
     }
     
+    public static List<HocKi> layThongTinHocKiHienTai(){
+        List<HocKi> hk = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql  = "select hk from HocKi hk where hk.HKHT = 1";
+            Query query = session.createQuery(hql);
+            hk = query.list();
+        } catch (HibernateException ex) {
+            System.err.println(ex);
+        }
+        return hk;
+    }
+    
     public static HocKi layThongTinHocKi(IDHocKi idHocKi) {
         HocKi hk = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -70,6 +82,7 @@ public class HocKiDAO {
     }
     
     public static boolean xoaHocKi(IDHocKi idHocKi) {
+        KiDKHPDAO.xoaKiDKHP(idHocKi);
         Session session = HibernateUtil.getSessionFactory().openSession();
         HocKi hk = HocKiDAO.layThongTinHocKi(idHocKi);
         if (hk == null) {

@@ -5,17 +5,17 @@ import java.util.Objects;
 
 public class HocPhan implements Serializable{
     private IDHocPhan idHocPhan;
+    private MonHoc maMonHoc;
     private GiaoVien giaoVien;
-    private PhongHoc phongHoc;
     private int soSlot;
 
     public HocPhan() {
     }
 
-    public HocPhan(IDHocPhan idHocPhan, GiaoVien giaoVien, PhongHoc phongHoc, int soSlot) {
+    public HocPhan(IDHocPhan idHocPhan, MonHoc maMonHoc, GiaoVien giaoVien, int soSlot) {
         this.idHocPhan = idHocPhan;
+        this.maMonHoc = maMonHoc;
         this.giaoVien = giaoVien;
-        this.phongHoc = phongHoc;
         this.soSlot = soSlot;
     }
 
@@ -27,20 +27,20 @@ public class HocPhan implements Serializable{
         this.idHocPhan = idHocPhan;
     }
 
+    public MonHoc getMaMonHoc() {
+        return maMonHoc;
+    }
+
+    public void setMaMonHoc(MonHoc maMonHoc) {
+        this.maMonHoc = maMonHoc;
+    }
+
     public GiaoVien getGiaoVien() {
         return giaoVien;
     }
 
     public void setGiaoVien(GiaoVien giaoVien) {
         this.giaoVien = giaoVien;
-    }
-
-    public PhongHoc getPhongHoc() {
-        return phongHoc;
-    }
-
-    public void setPhongHoc(PhongHoc phongHoc) {
-        this.phongHoc = phongHoc;
     }
 
     public int getSoSlot() {
@@ -53,7 +53,7 @@ public class HocPhan implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 5;
+        int hash = 3;
         hash = 97 * hash + Objects.hashCode(this.idHocPhan);
         return hash;
     }

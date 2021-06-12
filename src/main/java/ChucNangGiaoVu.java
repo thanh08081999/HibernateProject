@@ -70,9 +70,19 @@ public class ChucNangGiaoVu extends javax.swing.JFrame {
 
         btnGVQLKDKHP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGVQLKDKHP.setText("Quản lý kì đăng ký học phần");
+        btnGVQLKDKHP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGVQLKDKHPActionPerformed(evt);
+            }
+        });
 
         btnGVQLKQDKHP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnGVQLKQDKHP.setText("Xem kết quả đăng kí học phần");
+        btnGVQLKQDKHP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGVQLKQDKHPActionPerformed(evt);
+            }
+        });
 
         btnQuayLai.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnQuayLai.setText("Quay lại");
@@ -121,8 +131,7 @@ public class ChucNangGiaoVu extends javax.swing.JFrame {
                         .addComponent(btnGVTTTK, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
-                        .addComponent(btnThoat)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnThoat)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -190,6 +199,16 @@ public class ChucNangGiaoVu extends javax.swing.JFrame {
         new QuanLyLopHoc(taiKhoan).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnGVQLLHActionPerformed
+
+    private void btnGVQLKDKHPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGVQLKDKHPActionPerformed
+        new QuanLyKiDKHP(taiKhoan).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnGVQLKDKHPActionPerformed
+
+    private void btnGVQLKQDKHPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGVQLKQDKHPActionPerformed
+        new DanhSachSinhVienDangKyHocPhan(taiKhoan).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnGVQLKQDKHPActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

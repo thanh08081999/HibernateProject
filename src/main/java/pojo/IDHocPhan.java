@@ -4,25 +4,17 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class IDHocPhan implements Serializable {
-    private String maMonHoc;
+    private String phongHoc;
     private String idThu;
     private String idCa;
 
     public IDHocPhan() {
     }
 
-    public IDHocPhan(String maMonHoc, String idThu, String idCa) {
-        this.maMonHoc = maMonHoc;
+    public IDHocPhan(String phongHoc, String idThu, String idCa) {
+        this.phongHoc = phongHoc;
         this.idThu = idThu;
         this.idCa = idCa;
-    }
-
-    public String getMaMonHoc() {
-        return maMonHoc;
-    }
-
-    public void setMaMonHoc(String maMonHoc) {
-        this.maMonHoc = maMonHoc;
     }
 
     public String getIdThu() {
@@ -41,12 +33,20 @@ public class IDHocPhan implements Serializable {
         this.idCa = idCa;
     }
 
+    public String getPhongHoc() {
+        return phongHoc;
+    }
+
+    public void setPhongHoc(String phongHoc) {
+        this.phongHoc = phongHoc;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 43 * hash + Objects.hashCode(this.maMonHoc);
-        hash = 43 * hash + Objects.hashCode(this.idThu);
-        hash = 43 * hash + Objects.hashCode(this.idCa);
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.phongHoc);
+        hash = 59 * hash + Objects.hashCode(this.idThu);
+        hash = 59 * hash + Objects.hashCode(this.idCa);
         return hash;
     }
 
@@ -62,7 +62,7 @@ public class IDHocPhan implements Serializable {
             return false;
         }
         final IDHocPhan other = (IDHocPhan) obj;
-        if (!Objects.equals(this.maMonHoc, other.maMonHoc)) {
+        if (!Objects.equals(this.phongHoc, other.phongHoc)) {
             return false;
         }
         if (!Objects.equals(this.idThu, other.idThu)) {
@@ -70,6 +70,6 @@ public class IDHocPhan implements Serializable {
         }
         return Objects.equals(this.idCa, other.idCa);
     }
-    
+
     
 }

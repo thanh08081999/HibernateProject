@@ -30,16 +30,26 @@ public class ChucNangSinhVien extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbSinhVien.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lbSinhVien.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lbSinhVien.setText("SINH VIÊN");
 
-        btnSVDKHP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSVDKHP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSVDKHP.setText("Đăng ký học phần");
+        btnSVDKHP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSVDKHPActionPerformed(evt);
+            }
+        });
 
-        btnSVKQDKHP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSVKQDKHP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSVKQDKHP.setText("Kết quả đăng ký học phần");
+        btnSVKQDKHP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSVKQDKHPActionPerformed(evt);
+            }
+        });
 
-        btnQuayLai.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnQuayLai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnQuayLai.setText("Quay lại");
         btnQuayLai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,7 +57,7 @@ public class ChucNangSinhVien extends javax.swing.JFrame {
             }
         });
 
-        btnThoat.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnThoat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnThoat.setText("Thoát");
         btnThoat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,7 +65,7 @@ public class ChucNangSinhVien extends javax.swing.JFrame {
             }
         });
 
-        btnSVTTTK.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSVTTTK.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnSVTTTK.setText("Thông tin tài khoản");
         btnSVTTTK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,18 +84,19 @@ public class ChucNangSinhVien extends javax.swing.JFrame {
                         .addComponent(lbSinhVien))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnQuayLai))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSVKQDKHP, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSVDKHP, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSVTTTK, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(109, Short.MAX_VALUE))
+                        .addComponent(btnQuayLai)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(177, 177, 177))
+                .addGap(0, 109, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSVKQDKHP, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSVDKHP, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSVTTTK, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)))
+                .addGap(109, 109, 109))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,7 +105,7 @@ public class ChucNangSinhVien extends javax.swing.JFrame {
                 .addComponent(btnQuayLai)
                 .addGap(10, 10, 10)
                 .addComponent(lbSinhVien)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(btnSVTTTK)
                 .addGap(18, 18, 18)
                 .addComponent(btnSVDKHP)
@@ -102,7 +113,7 @@ public class ChucNangSinhVien extends javax.swing.JFrame {
                 .addComponent(btnSVKQDKHP)
                 .addGap(37, 37, 37)
                 .addComponent(btnThoat)
-                .addGap(29, 29, 29))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -121,6 +132,16 @@ public class ChucNangSinhVien extends javax.swing.JFrame {
         new ThongTinTaiKhoan(taiKhoan).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSVTTTKActionPerformed
+
+    private void btnSVDKHPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSVDKHPActionPerformed
+        new DangKyHocPhan(taiKhoan).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSVDKHPActionPerformed
+
+    private void btnSVKQDKHPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSVKQDKHPActionPerformed
+        new KetQuaDangKyHocPhan(taiKhoan).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSVKQDKHPActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnQuayLai;

@@ -4,17 +4,20 @@
 <hibernate-mapping>
     <class name="pojo.HocPhan" table="hoc_phan">
         <composite-id name="idHocPhan" class="pojo.IDHocPhan">
-            <key-property name="maMonHoc" type="string" column="maMonHoc"/>
+            <key-property name="phongHoc" type="string" column="phongHoc"/>
             <key-property name="idThu" type="string" column="thu"/>
             <key-property name="idCa" type="string" column="caHoc"/>
             <generator class="assigned"/>
         </composite-id>
+        <many-to-one class="pojo.MonHoc" name="maMonHoc" fetch="select" lazy="false">
+            <column name="maMonHoc" not-null="true"/>
+        </many-to-one>
         <many-to-one class="pojo.GiaoVien" name="giaoVien" fetch="select" lazy="false">
             <column name="giaoVienLyThuyet" not-null="true"/>
         </many-to-one>
-        <many-to-one class="pojo.PhongHoc" name="phongHoc" fetch="select" lazy="false">
+        <!--<many-to-one class="pojo.PhongHoc" name="phongHoc" fetch="select" lazy="false">
             <column name="phongHoc" not-null="true"/>
-        </many-to-one>
+        </many-to-one>-->
         <property name="soSlot" type="int">
             <column name="soSlot"/>
         </property>
